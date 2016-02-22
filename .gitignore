@@ -22,6 +22,7 @@
 !.config/fontconfig
 !.config/fontconfig/fonts.conf
 
+# git update-index --skip-worktree .config/QtProject/QtCreator.ini
 .config/QtProject/*
 !.config/QtProject
 !.config/QtProject/QtCreator.ini
