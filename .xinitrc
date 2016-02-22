@@ -41,13 +41,7 @@ xset m 6/5 4
 xset s off
 xset -dpms
 
-setterm -blank 0 
-setterm -powerdown 0 
-
 compton -b &
-mpd &
-
-emacs --daemon &
 
 feh --bg-scale ~/img/wallpapers/2.png
 exec i3

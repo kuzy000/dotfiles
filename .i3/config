@@ -8,8 +8,10 @@
 # i3 config file (v4)
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
-
 set $mod Mod4
+
+set $locker i3lock -i ~/img/wallpapers/2.png && sleep 1
+exec --no-startup-id $locker
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-mute 1 0 && pactl set-sink-volume 1 +5% && killall -SIGUSR1 i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-mute 1 0 && pactl set-sink-volume 1 -5% && killall -SIGUSR1 i3status
@@ -169,9 +171,6 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-
-set $locker i3lock -i ~/img/wallpapers/2.png && sleep 1
-
 
 # set $suspend dbus-send --system --print-reply --dest="org.freedesktop.UPower" /org/freedesktop/UPower org.freedesktop.UPower.Suspend
 set $suspend systemctl suspend

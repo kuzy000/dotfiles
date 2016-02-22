@@ -11,6 +11,8 @@
 !.fonts.conf
 !.mpdconf
 !.zshrc
+!.zprofile
+!.zlogin
 !.xinitrc
 
 .config/*
