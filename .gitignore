@@ -28,3 +28,7 @@
 .config/QtProject/*
 !.config/QtProject
 !.config/QtProject/QtCreator.ini
+
+bin/*
+!bin/
+!bin/i3-wait-for-windows-then-move.sh

@@ -11,7 +11,7 @@
 set $mod Mod4
 
 set $locker i3lock -i ~/img/wallpapers/2.png && sleep 1
-exec --no-startup-id $locker
+# exec --no-startup-id $locker
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-mute 1 0 && pactl set-sink-volume 1 +5% && killall -SIGUSR1 i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-mute 1 0 && pactl set-sink-volume 1 -5% && killall -SIGUSR1 i3status
@@ -26,13 +26,17 @@ assign [class="Okular"] 5
 
 exec --no-startup-id exec setxkbmap -layout us,ru -option grp:caps_toggle,grp_led:scroll
 
-exec --no-startup-id i3-msg 'workspace 1; exec firefox'
-exec --no-startup-id i3-msg 'workspace 3; exec i3-sensible-terminal'
-exec --no-startup-id i3-msg 'workspace 3; exec i3-sensible-terminal'
-exec --no-startup-id i3-msg 'workspace 4; exec dolphin'
-exec --no-startup-id i3-msg 'workspace 7; exec leechcraft'
-exec --no-startup-id i3-msg 'workspace 8; exec cantata'
-exec --no-startup-id i3-msg 'workspace 1'
+exec --no-startup-id i3-msg 'workspace 3'
+exec firefox
+exec i3-sensible-terminal
+exec i3-sensible-terminal
+exec dolphin
+exec cantata
+
+exec ~/bin/i3-wait-for-windows-then-move.sh `pidof firefox` 1 1
+exec ~/bin/i3-wait-for-windows-then-move.sh `pidof konsole` 2 3
+exec ~/bin/i3-wait-for-windows-then-move.sh `pidof dolphin` 1 4
+exec ~/bin/i3-wait-for-windows-then-move.sh `pidof cantata` 1 8
 
 exec killall -q notify-osd
 exec --no-startup-id dunst -config ~/.i3/config_dunst
