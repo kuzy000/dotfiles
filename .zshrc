@@ -88,3 +88,6 @@ if [[ ! -d $ZSH_CACHE_DIR ]]; then
 fi
 
 source $ZSH/oh-my-zsh.sh
+
+
+. /home/kuzy000/opt/torch/install/bin/torch-activate
