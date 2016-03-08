@@ -276,13 +276,13 @@ input {
 #
 # An example of a pulseaudio output (streaming to a remote pulseaudio server)
 #
-audio_output {
-	type		"pulse"
-	name		"My Pulse Output"
+#audio_output {
+#	type		"pulse"
+#	name		"My Pulse Output"
 #	server		"localhost"
 #	server		"remote_server"		# optional
 #	sink		"remote_server_sink"	# optional
-}
+#}
 #
 # An example of a winmm output (Windows multimedia API).
 #
