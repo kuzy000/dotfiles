@@ -20,7 +20,7 @@ bindsym XF86AudioPlay        exec --no-startup-id mpc toggle
 bindsym $mod+End             exec --no-startup-id mpc next
 bindsym $mod+Home            exec --no-startup-id mpc prev
 
-assign [class="leechcraft"] 7
+assign [class="pidgin"] 7
 assign [class="Cantata"] 8
 assign [class="Okular"] 5
 
@@ -31,11 +31,13 @@ exec firefox
 exec i3-sensible-terminal
 exec i3-sensible-terminal
 exec dolphin
+exec pidgin
 exec cantata
 
 exec ~/bin/i3-wait-for-windows-then-move.sh firefox 1 1
 exec ~/bin/i3-wait-for-windows-then-move.sh konsole 2 3
 exec ~/bin/i3-wait-for-windows-then-move.sh dolphin 1 4
+exec ~/bin/i3-wait-for-windows-then-move.sh pidgin  1 7
 exec ~/bin/i3-wait-for-windows-then-move.sh cantata 1 8
 
 exec killall -q notify-osd
