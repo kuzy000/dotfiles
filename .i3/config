@@ -33,12 +33,14 @@ exec i3-sensible-terminal
 exec dolphin
 exec pidgin
 exec cantata
+exec chromium --app=https://maps.google.com
 
 exec ~/bin/i3-wait-for-windows-then-move.sh firefox 1 1
 exec ~/bin/i3-wait-for-windows-then-move.sh konsole 2 3
 exec ~/bin/i3-wait-for-windows-then-move.sh dolphin 1 4
 exec ~/bin/i3-wait-for-windows-then-move.sh pidgin  1 7
 exec ~/bin/i3-wait-for-windows-then-move.sh cantata 1 8
+exec ~/bin/i3-wait-for-windows-then-move.sh chromium 1 9
 
 exec killall -q notify-osd
 exec --no-startup-id dunst -config ~/.i3/config_dunst
