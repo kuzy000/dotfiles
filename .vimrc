@@ -9,7 +9,7 @@ set listchars=tab:»\
 set list
 set laststatus=2
 set nu
-set wrap!
+"set wrap!
 set fillchars+=vert:│
 set backspace=indent,eol,start
 
