@@ -10,7 +10,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 set $mod Mod4
 
-set $locker i3lock -i ~/img/wallpapers/2.png && sleep 1
+set $locker i3lock -c 555555 && sleep 1
 exec --no-startup-id $locker
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-mute 1 0 && pactl set-sink-volume 1 +5% && killall -SIGUSR1 i3status

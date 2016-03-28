@@ -43,5 +43,5 @@ xset -dpms
 
 compton -b &
 
-feh --bg-scale ~/img/wallpapers/2.png
+xsetroot -solid "#555555"
 exec i3
