@@ -56,6 +56,8 @@ plugins=(git)
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
+# RubyGems
+export PATH=$HOME/.gem/ruby/2.3.0/bin:$PATH
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
