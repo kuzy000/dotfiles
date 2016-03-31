@@ -13,12 +13,16 @@ set $mod Mod4
 set $locker i3lock -c 555555 && sleep 1
 exec --no-startup-id $locker
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-mute 1 0 && pactl set-sink-volume 1 +5% && killall -SIGUSR1 i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-mute 1 0 && pactl set-sink-volume 1 -5% && killall -SIGUSR1 i3status
-bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute 1 toggle   && killall -SIGUSR1 i3status
+set $if-fullscreen ~/bin/i3-is-fullscreen.sh
+set $notify-volume ~/bin/notify-replace.sh /tmp/i3-notify-volume -t 1000 -u normal "Volume: `pamixer --get-volume`%"
+set $notify-track  ~/bin/notify-replace.sh /tmp/i3-notify-track  -t 1000 -u normal "Now playing" "`mpc current`"
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-mute 1 0 && pactl set-sink-volume 1 +5% && killall -SIGUSR1 i3status && $if-fullscreen && $notify-volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-mute 1 0 && pactl set-sink-volume 1 -5% && killall -SIGUSR1 i3status && $if-fullscreen && $notify-volume
+bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute 1 toggle && killall -SIGUSR1 i3status
 bindsym XF86AudioPlay        exec --no-startup-id mpc toggle
-bindsym $mod+End             exec --no-startup-id mpc next
-bindsym $mod+Home            exec --no-startup-id mpc prev
+bindsym $mod+End             exec --no-startup-id mpc next && $if-fullscreen && $notify-track
+bindsym $mod+Home            exec --no-startup-id mpc prev && $if-fullscreen && $notify-track
 
 assign [class="pidgin"] 7
 assign [class="Cantata"] 8
