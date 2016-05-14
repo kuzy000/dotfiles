@@ -1,0 +1,2 @@
+#!/bin/sh
+PATH=~/bin:$PATH dmenu_run "$@"

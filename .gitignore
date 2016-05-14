@@ -34,3 +34,4 @@ bin/*
 !bin/i3-wait-for-windows-then-move.sh
 !bin/i3-is-fullscreen.sh
 !bin/notify-replace.sh
+!bin/dmenu_run-with-custom-path
