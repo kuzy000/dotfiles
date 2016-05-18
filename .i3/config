@@ -63,7 +63,7 @@ bindsym $mod+button5 workspace next
 # gaps inner $gaps-width
 # gaps outer -$gaps-width
 
-for_window [class=".*"] border pixel 1
+for_window [class=".*"] border pixel 2
 
 smart_borders on
 smart_gaps on
@@ -71,7 +71,7 @@ smart_gaps on
 # class                 border  backgr. text    indicator
 # client.focused          #4b4b4b #4b4b4b #eeeeee #4b4b4b
 client.focused          #801010 #801010 #eeeeee #801010
-client.focused_inactive #4b4b4b #4b4b4b #808080 #4b4b4b
+client.focused_inactive #101010 #101010 #eeeeee #101010
 client.unfocused        #101010 #101010 #eeeeee #101010
 client.urgent           #801010 #801010 #eeeeee #801010
 # client.placeholder      #101010 #101010 #eeeeee #101010
