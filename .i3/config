@@ -14,8 +14,8 @@ set $locker i3lock -c 555555 && sleep 1
 exec --no-startup-id $locker
 
 set $if-fullscreen ~/bin/i3-is-fullscreen.sh
-set $notify-volume ~/bin/notify-replace.sh /tmp/i3-notify-volume -t 1000 -u normal "Volume: `pamixer --get-volume`%"
-set $notify-track  ~/bin/notify-replace.sh /tmp/i3-notify-track  -t 1000 -u normal "Now playing" "`mpc current`"
+set $notify-volume ~/bin/notify-replace.sh /tmp/ram/i3-notify-volume -t 1000 -u normal "Volume: `pamixer --get-volume`%"
+set $notify-track  ~/bin/notify-replace.sh /tmp/ram/i3-notify-track  -t 1000 -u normal "Now playing" "`mpc current`"
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-mute 1 0 && pactl set-sink-volume 1 +5% && killall -SIGUSR1 i3status && $if-fullscreen && $notify-volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-mute 1 0 && pactl set-sink-volume 1 -5% && killall -SIGUSR1 i3status && $if-fullscreen && $notify-volume
