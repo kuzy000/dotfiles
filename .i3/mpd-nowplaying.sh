@@ -11,7 +11,7 @@ display_song() {
         color='#606060'
         ;;
     esac
-    echo '[{"name": "mpd", "instance": "now playing", "full_text": "'$1' ", "color": "'${color}'"}]'
+    echo '[{"name": "mpd", "instance": "now playing", "full_text": "'"$1"' ", "color": "'${color}'"}]'
 }
 
 (while :; do
