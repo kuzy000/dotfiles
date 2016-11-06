@@ -24,7 +24,7 @@ bindsym XF86AudioPlay        exec --no-startup-id mpc toggle
 bindsym $mod+End             exec --no-startup-id mpc next && $if-fullscreen && $notify-track
 bindsym $mod+Home            exec --no-startup-id mpc prev && $if-fullscreen && $notify-track
 
-assign [class="pidgin"] 7
+assign [class="gajim"] 7
 assign [class="Cantata"] 8
 assign [class="Okular"] 5
 
@@ -37,14 +37,14 @@ exec firefox
 exec dolphin
 exec pidgin
 exec cantata
-exec chromium --app=https://maps.google.com
+# exec chromium --app=https://maps.google.com
 
 exec ~/bin/i3-wait-for-windows-then-move.sh firefox 1 1
 # exec ~/bin/i3-wait-for-windows-then-move.sh konsole 2 3
 exec ~/bin/i3-wait-for-windows-then-move.sh dolphin 1 4
-exec ~/bin/i3-wait-for-windows-then-move.sh pidgin  1 7
+exec ~/bin/i3-wait-for-windows-then-move.sh gajim  1 7
 exec ~/bin/i3-wait-for-windows-then-move.sh cantata 1 8
-exec ~/bin/i3-wait-for-windows-then-move.sh chromium 1 9
+# exec ~/bin/i3-wait-for-windows-then-move.sh chromium 1 9
 
 exec killall -q notify-osd
 exec --no-startup-id dunst -config ~/.i3/config_dunst
