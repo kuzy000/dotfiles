@@ -8,6 +8,7 @@
 !.zshrc
 !.profile
 !.xbindkeysrc
+!.pacman-packages-list
 
 !.config
 .config/*
