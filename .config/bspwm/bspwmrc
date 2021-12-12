@@ -1,0 +1,31 @@
+#!/bin/sh
+
+killall lattedock-tweaks.sh
+$HOME/bin/lattedock-tweaks.sh
+
+killall sxhkd
+killall xbindkeys
+
+pgrep -x picom > /dev/null || picom &
+pgrep -x sxhkd > /dev/null || sxhkd &
+pgrep -x xbindkeys > /dev/null || xbindkeys &
+
+#pkill -USR1 -x sxhkd
+
+bspc config borderless_monocle    true
+bspc config gapless_monocle       true
+bspc config single_monocle        true
+bspc config focus_follows_pointer true
+
+bspc config border_width  2
+bspc config window_gap   12
+
+bspc monitor DVI-D-0 -d 1 2 3 4 5 6 7 8 9 0
+bspc monitor HDMI-0  -d 1 2 3 4 5 6 7 8 9 0
+
+bspc rule -a lattedock focus=on state=floating center=off border=off 
+bspc rule -a krunner   focus=on state=floating center=off border=off
+bspc rule -a megasync  focus=on state=floating center=off border=off
+# bspc rule -a plasmashell state=floating center=off border=off
+ 
+xdo lower -N plasmashell -a Desktop

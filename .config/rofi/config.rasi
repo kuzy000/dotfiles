@@ -1,0 +1,177 @@
+/*******************************************************************************
+ * ROFI Color theme
+ * Based on Adapta-Nokto GTK theme (https://github.com/adapta-project/adapta-gtk-theme)
+ * User: PyGeek03
+ * Copyright: PyGeek03
+ ********************************************************************************/
+
+configuration {
+    display-ssh:         "";
+    display-run:         "";
+    display-drun:        "";
+    display-filebrowser: "";
+    display-window:      "";
+    display-combi:       "";
+
+    drun-display-format: "{name} [<span color='#a1a9b1'>{generic}</span>]";
+
+    show-icons: true;
+}
+
+* {
+    view-background: #1b1e20;
+    window-background: #2a2e32e0;
+    button-background: #31363b;
+    selection: #3daee9;
+    selection-tr: #3daee940;
+    line: #a1a9b1;
+    text: #fcfcfc;
+
+    font: "Noto Sans 10";
+    foreground: @text;
+
+    normal-background: #ffffff00;
+    alternate-normal-background: #ffffff00;
+
+    highlight: bold #ffffff;
+
+    selected-normal-foreground:  rgba ( 250, 251, 252, 100 % );
+    normal-foreground:           @foreground;
+    red:                         rgba ( 220, 50, 47, 100 % );
+    selected-urgent-foreground:  rgba ( 253, 246, 227, 100 % );
+    blue:                        rgba ( 38, 139, 210, 100 % );
+    urgent-foreground:           rgba ( 255, 82, 82, 100 % );
+    alternate-urgent-background: rgba ( 69, 90, 100, 100 % );
+    active-foreground:           rgba ( 0, 188, 212, 100 % );
+    lightbg:                     rgba ( 238, 232, 213, 100 % );
+    selected-active-foreground:  rgba ( 253, 246, 227, 100 % );
+    alternate-active-background: rgba ( 69, 90, 100, 100 % );
+    background:                  rgba ( 58, 76, 84, 100 % );
+    bordercolor:                 rgba ( 42, 55, 62, 100 % );
+    alternate-normal-foreground: @foreground;
+    lightfg:                     rgba ( 88, 104, 117, 100 % );
+    selected-normal-background:  rgba ( 0, 188, 212, 100 % );
+    border-color:                @foreground;
+    spacing:                     2;
+    separatorcolor:              rgba ( 195, 198, 200, 100 % );
+    urgent-background:           rgba ( 69, 90, 100, 100 % );
+    selected-urgent-background:  rgba ( 255, 82, 82, 100 % );
+    alternate-urgent-foreground: @urgent-foreground;
+    background-color:            rgba ( 0, 0, 0, 0 % );
+    alternate-active-foreground: @active-foreground;
+    active-background:           rgba ( 69, 90, 100, 100 % );
+    selected-active-background:  rgba ( 0, 150, 136, 100 % );
+}
+
+#window {
+    location: center;
+    background-color: @window-background;
+    border:           0;
+    padding:          6;
+    border-radius: 3;
+    width: 530;
+}
+#mainbox {
+    border:  0;
+    padding: 0;
+}
+#message {
+    border:       0;
+    border-color: @separatorcolor;
+    padding:      1px ;
+}
+#textbox {
+    text-color: @foreground;
+}
+#listview {
+    fixed-height: 0;
+    border:       0;
+    border-color: @line;
+    spacing:      2px;
+    scrollbar:    false;
+    padding:      2px 0px 0px ;
+}
+
+#element {
+    border:  0;
+    padding: 10;
+}
+#element.normal.normal {
+}
+#element.normal.urgent {
+}
+#element.normal.active {
+}
+#element.selected.normal {
+    background-color: @selection-tr;
+    border: 1;
+    border-radius: 3;
+    border-color: @selection;
+}
+#element.selected.urgent {
+}
+#element.selected.active {
+}
+#element.alternate.normal {
+}
+#element.alternate.urgent {
+}
+#element.alternate.active {
+}
+#scrollbar {
+    width:        4px ;
+    border:       0;
+    handle-width: 8px ;
+    padding:      0;
+}
+#mode-switcher {
+    border:       2px dash 0px 0px ;
+    border-color: @separatorcolor;
+}
+#button.selected {
+    background-color: @selected-normal-background;
+    text-color:       @selected-normal-foreground;
+}
+#inputbar {
+    spacing:    0;
+    text-color: @normal-foreground;
+    padding:    1px ;
+}
+#case-indicator {
+    spacing:    0;
+    text-color: @normal-foreground;
+}
+#entry {
+    spacing:    0;
+    text-color: @normal-foreground;
+    background-color: @view-background;
+    border-color: @selection;
+    border: 1;
+    border-radius: 3px;
+    padding: 5;
+    vertical-align: 0.5;
+
+    margin: 0 31 0 0;
+
+    placeholder: "Search...";
+}
+
+#prompt {
+    spacing:    0;
+    text-color: @normal-foreground;
+    vertical-align: 0.5;
+    font: "Noto Sans 24";
+    padding: -20 8 -20 4;
+}
+
+#inputbar {
+    children: [ prompt,entry,case-indicator ];
+}
+
+#textbox-prompt-colon {
+    expand:     false;
+    str:        ":";
+    margin:     0px 0.3em 0em 0em ;
+    text-color: @normal-foreground;
+}
+

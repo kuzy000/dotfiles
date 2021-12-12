@@ -1,0 +1,5 @@
+"xdotool key --clearmodifiers XF86AudioRaiseVolume"
+   Mod4 + b:4
+
+"xdotool key --clearmodifiers XF86AudioLowerVolume"
+   Mod4 + b:5

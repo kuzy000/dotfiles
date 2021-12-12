@@ -1,0 +1,5 @@
+[directory]
+truncation_length = -1
+truncate_to_repo = false
+style = "bold yellow"
+home_symbol = "~"
