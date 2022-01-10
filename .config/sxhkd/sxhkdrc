@@ -125,5 +125,5 @@ super + shift + {i,o}
 # hotkeys
 
 super + d
-	rofi -modi 'drun,filebrowser,run' -show drun
+	~/bin/rofi.sh
 

@@ -1,3 +1,5 @@
 [user]
 	email = kuzy000@gmail.com
 	name = Egor Moiseenko
+[core]
+	editor = nvim

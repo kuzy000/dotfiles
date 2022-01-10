@@ -56,10 +56,7 @@ if __name__ == '__main__':
     if getPosition(docks[0])[0] >= 1920:
         docks[0], docks[1] = docks[1], docks[0]
 
-    monitors = {
-            'HDMI-0':  {'dbus': 1, 'tokens': [], 'dock': docks[0]}, 
-            'DVI-D-0': {'dbus': 2, 'tokens': [], 'dock': docks[1]}, 
-            }
+    monitors = {v: {'dbus': i + 1, 'tokens': [], 'dock': docks[i]} for i, v in enumerate(sys.argv[1:])}
 
     while True:
         tokens = sys.stdin.readline().rstrip('\n')[1:].split(':')
