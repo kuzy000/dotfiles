@@ -14,7 +14,6 @@
 .config/*
 !.config/kglobalshortcutsrc
 !.config/kxkbrc
-!.config/lattedockrc
 !.config/picom.conf
 !.config/plasma-localerc
 !.config/starship.toml
