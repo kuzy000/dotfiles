@@ -127,3 +127,6 @@ super + shift + {i,o}
 super + d
 	~/bin/rofi.sh
 
+super + Return
+	konsole
+

@@ -1,6 +1,7 @@
 [ActivityManager]
 _k_friendly_name=Activity Manager
 switch-to-activity-73032da0-5bb3-4399-9bb9-c8e7934916b7=none,none,Switch to activity "Default"
+switch-to-activity-892e4677-4c3e-4940-b75a-e2041a720a55=none,none,Switch to activity "Default"
 
 [KDE Keyboard Layout Switcher]
 Switch keyboard layout to English (US)=none,none,Switch keyboard layout to English (US)
@@ -15,7 +16,7 @@ _k_friendly_name=Accessibility
 [kcm_touchpad]
 Disable Touchpad=Touchpad Off,Touchpad Off,Disable Touchpad
 Enable Touchpad=Touchpad On,Touchpad On,Enable Touchpad
-Toggle Touchpad=Touchpad Toggle\tMeta+F11,Touchpad Toggle,Toggle Touchpad
+Toggle Touchpad=Meta+F11\tTouchpad Toggle,Touchpad Toggle,Toggle Touchpad
 _k_friendly_name=Touchpad
 
 [kded5]
@@ -25,8 +26,8 @@ display=Display,Display\tMeta+P,Switch Display
 
 [khotkeys]
 _k_friendly_name=Custom Shortcuts Service
-{9c0582c8-2c4c-42e7-9b5f-5edab21fe5c9}=Meta+Return,none,Launch Konsole
 {d03619b6-9b3c-48cc-9d9c-a2aadb485550}=,none,Search
+{fddc2126-c086-4fe5-b310-ec347dca89ef}=,none,Launch Konsole
 
 [kmix]
 _k_friendly_name=Audio Volume
