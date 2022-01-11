@@ -6,6 +6,10 @@ $HOME/bin/lattedock-tweaks.sh
 killall sxhkd
 killall xbindkeys
 
+if [[ "$DOTFILES_PC" == "desktop" ]]; then
+  jack_control start
+fi
+
 pgrep -x picom > /dev/null || picom &
 pgrep -x sxhkd > /dev/null || sxhkd &
 pgrep -x xbindkeys > /dev/null || xbindkeys &
