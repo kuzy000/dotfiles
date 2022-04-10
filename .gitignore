@@ -28,6 +28,7 @@
 !.config/plasma-workspace
 !.config/rofi
 !.config/sxhkd
+!.config/nvim
 
 
 !.xonotic
