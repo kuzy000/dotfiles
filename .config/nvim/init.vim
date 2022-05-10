@@ -1,3 +1,5 @@
+set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯЖХ;ABCDEFGHIJKLMNOPQRSTUVWXYZ:{,фисвуапршолдьтщзйкыегмцчнях;abcdefghijklmnopqrstuvwxyz[
+
 call plug#begin()
 
 Plug 'kyazdani42/nvim-web-devicons'
