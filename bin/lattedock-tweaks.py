@@ -4,7 +4,7 @@ import re
 import sys
 import subprocess
 
-def dbusWidget(monitor, data):
+def dbus_widget(monitor, data):
     desktops = data['tokens'][1:next(i for i, v in enumerate(data['tokens']) if v[0] == 'L')]
     msg=''
     for i, desktop in enumerate(desktops):
@@ -29,7 +29,7 @@ def dbusWidget(monitor, data):
             'org.kde.plasma.doityourselfbar', f'/id_{data["dbus"]}',
             'org.kde.plasma.doityourselfbar.pass', msg])
 
-def dockWindow(monitor, data):
+def dock_window(monitor, data):
     if data['tokens'][-2] == 'T=':
         subprocess.call(['xdo', 'hide', data['dock']])
     else:
@@ -40,23 +40,44 @@ def dockWindow(monitor, data):
     else:
         subprocess.call(['picom-trans', '-w', data['dock'], '75'])
 
+def get_monitor_names():
+    r = subprocess.check_output([
+        'xrandr', '--listmonitors'
+        ]).decode('utf-8').rstrip('\n').split('\n')[1:]
+    r = [e.strip() for e in r]
+    r = [re.match('^.: \\+\\**(.*) \\d+/\\d+x\\d+/\\d+\\+(\\d+)\\+\\d+.*$', e).group(1, 2) for e in r]
+    r.sort(key=lambda x: x[1])
+    r = [e[0] for e in r]
 
-def getPosition(wnd):
+    return r
+
+def get_pos_x(wnd):
     text = subprocess.check_output([
         'xdotool', 'getwindowgeometry', wnd
         ]).decode('utf-8')
-    pos = re.search('Position: ([0-9,]+)', text).group(1).split(',')
-    return [int(s) for s in pos]
+    posX = re.search('Position: ([0-9,]+)', text).group(1).split(',')[0]
 
-if __name__ == '__main__':
-    docks = subprocess.check_output([
+    return int(posX)
+
+def get_dock_ids():
+    r = subprocess.check_output([
         'xdotool', 'search', '--onlyvisible', '--class', 'lattedock'
         ]).decode('utf-8').rstrip('\n').split('\n')
 
-    if getPosition(docks[0])[0] >= 1920:
-        docks[0], docks[1] = docks[1], docks[0]
+    r = [(d, get_pos_x(d)) for d in r]
+    r.sort(key=lambda x: x[1])
+    r = [d[0] for d in r]
 
-    monitors = {v: {'dbus': i + 1, 'tokens': [], 'dock': docks[i]} for i, v in enumerate(sys.argv[1:])}
+    return r
+
+if __name__ == '__main__':
+    monitor_names = get_monitor_names()
+    dock_ids = get_dock_ids()
+
+    monitor_names = monitor_names[:len(dock_ids)]
+    dock_ids = dock_ids[:len(monitor_names)]
+
+    monitors = {v: {'dbus': i + 1, 'tokens': [], 'dock': dock_ids[i]} for i, v in enumerate(monitor_names)}
 
     while True:
         tokens = sys.stdin.readline().rstrip('\n')[1:].split(':')
@@ -71,6 +92,6 @@ if __name__ == '__main__':
             monitors[tokens[a][1:]]['tokens'] = tokens[a:b]
 
         for monitor, data in monitors.items():
-            dbusWidget(monitor, data)
-            dockWindow(monitor, data)
+            dbus_widget(monitor, data)
+            dock_window(monitor, data)
 
