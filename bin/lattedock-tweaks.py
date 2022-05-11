@@ -84,12 +84,14 @@ if __name__ == '__main__':
         
         idxs = []
         for i, token in enumerate(tokens):
-            if token[1:] in monitors:
+            if token[0].lower() == 'm':
                 idxs.append(i)
 
         idxs.sort()
         for a, b in zip(idxs, idxs[1:] + [len(tokens)]):
-            monitors[tokens[a][1:]]['tokens'] = tokens[a:b]
+            monitor = tokens[a][1:]
+            if monitor in monitors:
+                monitors[monitor]['tokens'] = tokens[a:b]
 
         for monitor, data in monitors.items():
             dbus_widget(monitor, data)
