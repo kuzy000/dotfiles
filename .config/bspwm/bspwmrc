@@ -25,23 +25,22 @@ bspc config border_width  2
 bspc config window_gap   12
 bspc config top_padding  28
 
-if [[ "$DOTFILES_PC" == "laptop" ]]; then
+monitors="`xrandr --listmonitors`"
+
+if echo "${monitors}" | grep -q eDP-1; then
   bspc monitor eDP-1  -d 1 2 3 4 5 6 7 8 9 0
 fi
 
-if [[ "$DOTFILES_PC" == "laptop-desktop" ]]; then
-  bspc monitor HDMI-2 -d 1 2 3 4 5 6 7 8 9 0
-  bspc monitor eDP-1  -d 1 2 3 4 5 6 7 8 9 0
+if echo "${monitors}" | grep -q HDMI-2; then
+  bspc monitor HDMI-2  -d 1 2 3 4 5 6 7 8 9 0
 fi
 
-if [[ "$DOTFILES_PC" == "desktop" ]]; then
-  bspc monitor DVI-D-0 -d 1 2 3 4 5 6 7 8 9 0
-  bspc monitor HDMI-0  -d 1 2 3 4 5 6 7 8 9 0
-fi 
 
 bspc rule -a lattedock focus=on state=floating center=off border=off 
 bspc rule -a krunner   focus=on state=floating center=off border=off
 bspc rule -a megasync  focus=on state=floating center=off border=off
 # bspc rule -a plasmashell state=floating center=off border=off
+
+bspc rule -a 'popup.py' state=floating center=off focus=off
  
 xdo lower -N plasmashell -a Desktop

@@ -27,7 +27,7 @@ super + f
 #
 
 # set the window state
-super + {t,shift + t,n, shift + f}
+super + {t,shift + t,shift + n,shift + f}
 	bspc node -t '~{tiled,pseudo_tiled,floating,fullscreen}'
 
 # set the node flags
@@ -129,4 +129,11 @@ super + d
 
 super + Return
 	konsole
+
+
+super + z
+	~/bin/xsel-trans-popup.sh
+
+super + x
+	xsel | trans -speak -no-translate
 
